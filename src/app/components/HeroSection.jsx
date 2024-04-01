@@ -4,10 +4,22 @@ import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { AuroraBackground } from "./ui/aurora-background";
 
 const HeroSection = () => {
   return (
-    <section className="lg:py-16">
+    <AuroraBackground>
+      <motion.div
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="relative flex flex-col gap-4 items-center justify-center px-4"
+      >
+        <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -74,6 +86,10 @@ const HeroSection = () => {
         </motion.div>
       </div>
     </section>
+      </motion.div>
+    </AuroraBackground>
+    
+    
   );
 };
 
